@@ -4,6 +4,7 @@ import { LoginAreaComponent } from './components/login-area/login-area.component
 import { LoginComponent } from './login.component';
 import { LoginRoutes } from './login-routing';
 import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -14,6 +15,8 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forChild(LoginRoutes),
   ]
 })

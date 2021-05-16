@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { usuarioProvider } from 'src/app/core/services/usuario.provider';
+import { UsuarioService } from 'src/app/core/services/usuario.service';
 import { Usuario } from 'src/app/shared/models/Usuario';
 
 @Component({
@@ -10,7 +10,7 @@ import { Usuario } from 'src/app/shared/models/Usuario';
 })
 export class CadastroUsuariosComponent implements OnInit {
 
-  constructor(private service:usuarioProvider) {}
+  constructor(private service:UsuarioService) {}
 
   erros:Array<string> = [];
   aguardar:boolean = false;
@@ -43,8 +43,11 @@ export class CadastroUsuariosComponent implements OnInit {
         if(!res.cadastrado)
         {
           this.erros = res.erros;
+        }else{
+          alert("Cadastro Efetuado.")
         }
         this.aguardar = false;
+
       },err =>{
         this.erros.push("Ocorreu um erro ao se comunicar com o servidor, por favor tente novamente.")
         this.aguardar = false;

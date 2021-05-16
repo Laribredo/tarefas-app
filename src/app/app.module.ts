@@ -6,6 +6,12 @@ import { LoginModule } from './modules/login/login.module';
 import { AppRoutingModule } from './app-routing';
 import { TarefaComponent } from './modules/tarefa-adm/tarefa.component';
 import { TarefaModule } from './modules/tarefa-adm/tarefa.module';
+import { AuthGuard } from './auth.guard';
+import { CadastroTarefasComponent } from './shared/components/cadastro-tarefas/cadastro-tarefas.component';
+import { LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
+registerLocaleData(localePt);
 
 @NgModule({
   declarations: [
@@ -17,7 +23,7 @@ import { TarefaModule } from './modules/tarefa-adm/tarefa.module';
     LoginModule,
     TarefaModule
   ],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: "pt-BR" }, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

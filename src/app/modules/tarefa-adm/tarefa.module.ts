@@ -7,9 +7,13 @@ import { TarefaRoutes } from './tarefa-routing';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { usuarioProvider } from 'src/app/core/services/usuario.provider';
+import { UsuarioService } from 'src/app/core/services/usuario.service';
 import { HttpClientModule } from '@angular/common/http';
 import { InterceptorModule } from 'src/app/core/interceptors/interceptor.module';
+import { LoginService } from 'src/app/core/services/login.service';
+import { CadastroTarefasComponent } from 'src/app/shared/components/cadastro-tarefas/cadastro-tarefas.component';
+import { ConsultaTarefasComponent } from 'src/app/shared/components/consulta-tarefas/consulta-tarefas.component';
+import { TarefasService } from 'src/app/core/services/tarefas.service';
 
 
 
@@ -20,7 +24,8 @@ import { InterceptorModule } from 'src/app/core/interceptors/interceptor.module'
     NavbarComponent,
     TarefaComponent,
     CadastroUsuariosComponent,
-
+    CadastroTarefasComponent,
+    ConsultaTarefasComponent
   ],
   imports: [
     CommonModule,
@@ -30,6 +35,6 @@ import { InterceptorModule } from 'src/app/core/interceptors/interceptor.module'
     ReactiveFormsModule,
     RouterModule.forChild(TarefaRoutes),
   ],
-  providers: [usuarioProvider]
+  providers: [UsuarioService, LoginService, TarefasService]
 })
 export class TarefaModule { }

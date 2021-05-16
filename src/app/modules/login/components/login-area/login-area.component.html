@@ -2,28 +2,17 @@
   <div id="formContent">
     <div class="row">
       <div class="col-md-12 espacamento">
-        <form>
-          <input
-            type="text"
-            id="login"
-            class="fadeIn second"
-            name="login"
-            placeholder="login"
-          />
-          <input
-            type="text"
-            id="password"
-            class="fadeIn third"
-            name="login"
-            placeholder="password"
-          />
-          <input type="submit" class="fadeIn fourth" value="Log In" />
+        <form [formGroup]="login" (ngSubmit)="OnSubmit()">
+          <div class="form-group">
+            <input  type="email" class="form-control" id="exampleInputEmail1" placeholder="login"  formControlName="login">
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="senha" formControlName="senha">
+          </div>
+          <button type="submit" class="btn btn-success" [disabled]="!login.valid" style="margin:20px" >
+            Entrar
+          </button>
         </form>
-      </div>
-      <div class="col-md-12">
-        <div id="formFooter">
-          <a class="underlineHover" href="#">Forgot Password?</a>
-        </div>
       </div>
       <!-- Remind Passowrd -->
     </div>
